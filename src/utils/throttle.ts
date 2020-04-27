@@ -6,19 +6,19 @@
  * @param wait time
  */
 export default function throttle(this: any, func: Function, wait: number) {
-    let timeout: NodeJS.Timer | number | null = null;
-    let callbackArgs: IArguments | null = null;
-    const context = this;
+  let timeout: NodeJS.Timer | number | null = null;
+  let callbackArgs: IArguments | null = null;
+  const context = this;
 
-    const later = () => {
-        func.apply(context, callbackArgs);
-        timeout = null;
-    };
+  const later = () => {
+    func.apply(context, callbackArgs);
+    timeout = null;
+  };
 
-    return function() {
-        if (!timeout) {
-            callbackArgs = arguments;
-            timeout = setTimeout(later, wait);
-        }
-    };
+  return () => {
+    if (!timeout) {
+      callbackArgs = arguments;
+      timeout = setTimeout(later, wait);
+    }
+  };
 }

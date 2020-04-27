@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const defineType = (components: IComponents, props: any) => {
-  const keys = Object.keys(components);
+  const keys: any[] = Object.keys(components);
   return (
-    keys.find(key => props[key] === true || props[key] === "true") || keys[0]
+    keys.find((key: string) => props[key] === true || props[key] === 'true') ||
+    keys[0]
   );
 };
 
@@ -22,7 +23,7 @@ const getType = (components: IComponents, props: any, type: string) => {
 
 const _createTypeComponent = (
   components: IComponents,
-  typeProp: string = "type"
+  typeProp: string = 'type'
 ) => ({ [typeProp]: type, ...props }: any, ref: any) => {
   type = getType(components, props, type);
   const Component = (components && components[type]) || React.Fragment;
@@ -31,7 +32,7 @@ const _createTypeComponent = (
 
 export const createTypeComponent = (
   components: IComponents,
-  typeProp: string = "type",
+  typeProp: string = 'type',
   forward = true
 ) =>
   forward

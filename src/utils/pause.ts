@@ -1,5 +1,5 @@
 const pause = (sec: number) =>
-  new Promise(res => {
+  new Promise((res: any) => {
     setTimeout(res, sec * 1000);
   });
 

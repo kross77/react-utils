@@ -4,7 +4,7 @@ export const reduceObj = (obj: object, reduceFn: Function): object =>
   Object.entries(obj).reduce(
     (reducedObj: object, [key, item]: any) => ({
       ...reducedObj,
-      [key]: reduceFn(item, key)
+      [key]: reduceFn(item, key),
     }),
     {}
   );
