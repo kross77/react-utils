@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Layout from '@kross77/react-native-layout';
 import useFirestoreLink from '../src';
-import firebase from 'firebase';
+import firebase from 'utils';
 
 
 const config = {
